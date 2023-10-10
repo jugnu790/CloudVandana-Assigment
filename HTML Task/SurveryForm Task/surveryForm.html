@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    form {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      display: none;
+    }
+
+    .popup-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Survey Form</h1>
+
+  <form action="/submit" method="post" id="survey-form">
+    <label for="First_Name">First Name:</label>
+    <input type="text" name="First_Name" id="First_Name" required>
+
+    <label for="Last_Name">Last Name:</label>
+    <input type="text" name="Last_Name" id="Last_Name" required>
+
+    <label for="Date_of_birth">Date of Birth:</label>
+    <input type="date" name="Date_Of_Birth" id="Date_Of_Birth" required>
+
+    <label for="Country">Country:</label>
+    <select name="Country" id="Country" required>
+      <option value="">Select a country</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+      <option value="Canada">Canada</option>
+      <option value="Australia">Australia</option>
+    </select>
+
+    <label for="Gender">Gender:</label>
+    <input type="checkbox" name="Gender" id="Gender_male" value="Male"> Male
+    <input type="checkbox" name="Gender" id="Gender_female" value="Female"> Female
+
+    <label for="Profession">Profession:</label>
+    <input type="text" name="Profession" id="Profession" required>
+
+    <label for="Email">Email:</label>
+    <input type="Email" name="Email" id="Email" required>
+
+    <label for="Mobile_Number">Mobile Number:</label>
+    <input type="tel" name="Mobile_Number" id="Mobile_Number" required>
+
+    <input type="Submit" value="Submit">
+    <input type="Reset" value="Reset">
+  </form>
+
+  <div class="popup">
+    <div class="popup-content">
+      <h2 id="popup-title">Your Selected Values</h2>
+      <ul id="popup-list"></ul>
+      <button id="popup-close">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
